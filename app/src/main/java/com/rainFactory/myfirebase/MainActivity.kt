@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
         mutData.put(data,value)
 
         if (add) {
-            val name = ed1.text.toString()
-            mPostReference.child(name).updateChildren(mutData)
+            val dbIndex = ed1.text.toString()
+            mPostReference.child(dbIndex).updateChildren(mutData)
 
         }
     }
@@ -59,12 +59,11 @@ class MainActivity : AppCompatActivity() {
         mPostReference = FirebaseDatabase.getInstance().reference
         mPostReference.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(db: DataSnapshot) {
-                txt1.text = db.value.toString()
+                txt1.text = db.value.toString() //same of getValue
                 txt2.text = db.getValue().toString()
-
-                txt3.text = db.child(ed1.text.toString()).getValue().toString()
+                txt3.text = db.child(ed1.text.toString()).getValue().toString() //원하는 영역 전체 불러오기
+                //검색한 key값에 해당하는 value값 보여주기
                 var ts:MutableMap<String,Any>? =  db.child(ed1.text.toString()).getValue(t)
-
                 ts?.forEach({
                     if(it.key.toString() == serch){
                         txt4.text = it.value.toString()
