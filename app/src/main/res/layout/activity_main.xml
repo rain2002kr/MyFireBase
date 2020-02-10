@@ -37,22 +37,26 @@
          android:id="@+id/ed1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="DB 이름"
             />
     <EditText
         android:id="@+id/ed2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="이경훈 "
         />
 
     <EditText
         android:id="@+id/ed3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="010-4697-3907 "
         />
     <EditText
         android:id="@+id/ed4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="검색이름"
         />
     <TextView
         android:id="@+id/txt1"
