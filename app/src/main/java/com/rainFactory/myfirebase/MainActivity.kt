@@ -17,26 +17,20 @@ import kotlin.collections.mutableMapOf
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
     private lateinit var mPostReference: DatabaseReference
-    var arrayIndex = ArrayList<String>()
-    var arrayData = ArrayList<String>()
-    var count = 0
     var gsonConvert : GsonConvert = GsonConvert()
-
-    var mutData :MutableMap<String,Any> = mutableMapOf<String,Any>()
-
     var t: GenericTypeIndicator<MutableMap<String,Any>> =
         object : GenericTypeIndicator<MutableMap<String,Any>>() {}
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //TODO INSERT Button
         btInsert.setOnClickListener({
-
             postFirebaseDatabase(true)
         })
+
+        //TODO Serch button
         btSerch.setOnClickListener({
             val serch = ed4.text.toString()
             getFirebaseDatabase(serch)
@@ -44,11 +38,12 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
     //TODO PostFireBase function
     fun postFirebaseDatabase(add: Boolean) {
         mPostReference = FirebaseDatabase.getInstance().reference
         val childUpdates: MutableMap<String, Any?> = HashMap()
-        var postValues: Map<String, Any?>? = null
+        //var postValues: Map<String, Any?>? = null
         var name = ed2.text.toString()
         var number = ed3.text.toString()
         var person = Person(name, number)
